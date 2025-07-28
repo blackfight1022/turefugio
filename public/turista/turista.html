@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Perfil del Turista - Tu Refugio</title>
+  <link rel="stylesheet" href="turista.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="titulo-con-logo">
+      <img src="logo.png" alt="Logo de Tu Refugio" class="logo-principal">
+      <h1 class="titulo-principal">Bienvenido a Tu Refugio</h1>
+    </div>
+
+    <nav class="nav-centered">
+      <ul class="menu">
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="#">Explorar Alojamientos</a>
+          <ul>
+            <li><a href="../explorar_alojamientos_fichas_detalle/explorar.html">Ficha Detalle</a></li>
+            <li><a href="../reservar/reservar.html">Reservar</a></li>
+            <li><a href="../calificar_reseñar/calificar.html">Calificar / Reseñar</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Mi Cuenta</a>
+          <ul>
+            <li><a href="#">Perfil</a></li>
+            <li><a href="#">Historial de Reservas</a></li>
+            <li><a href="#">Mensajería</a></li>
+            <li><a href="#" onclick="cerrarSesion()">Cerrar Sesión</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="login">
+      <h1>Hola, Turista 👋</h1>
+      <p>Explora alojamientos y planifica tu próxima aventura.</p>
+    </section>
+
+    <section class="collage-alojamientos">
+      <h2>¡Inspírate para tu próxima aventura!</h2>
+      <div class="galeria">
+        <img src="Cabaña en la montaña.jpg" alt="Cabaña en la montaña">
+        <img src="Casa frente al mar.jpg" alt="Casa frente al mar">
+        <img src="Departamento urbano.jpg" alt="Departamento urbano">
+        <img src="Casa rural en el campo.jpg" alt="Casa rural en el campo">
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p></p>
+    </div>
+  </footer>
+
+  <script>
+    function cerrarSesion() {
+      localStorage.removeItem('token');
+      localStorage.removeItem('rol');
+      window.location.href = '../index.html';
+    }
+  </script>
+</body>
+</html>

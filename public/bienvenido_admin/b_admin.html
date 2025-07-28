@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel de Administración - Tu Refugio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="b_admin.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="logo.png" alt="Logo Tu Refugio">
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Alojamientos</a></li>
+          <li><a href="#">Usuarios</a></li>
+          <li><a href="#">Reservas</a></li>
+          <li><a href="#">Reseñas</a></li>
+          <li><a href="#" onclick="cerrarSesion()">Salir</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-panel">
+      <header class="admin-header">
+        <h1>Bienvenido, Administrador</h1>
+      </header>
+
+      <section class="cards-admin">
+        <div class="admin-card">
+          <h2>Alojamientos</h2>
+          <p>Gestionar propiedades y detalles.</p>
+          <a href="#">Ver más</a>
+        </div>
+        <div class="admin-card">
+          <h2>Usuarios</h2>
+          <p>Ver y administrar cuentas.</p>
+          <a href="#">Ver más</a>
+        </div>
+        <div class="admin-card">
+          <h2>Reservas</h2>
+          <p>Controlar historial y estados.</p>
+          <a href="#">Ver más</a>
+        </div>
+        <div class="admin-card">
+          <h2>Reseñas</h2>
+          <p>Revisar y moderar comentarios.</p>
+          <a href="#">Ver más</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Verificación de sesión activa
+    window.addEventListener('DOMContentLoaded', () => {
+      const token = localStorage.getItem('token');
+      const rol = localStorage.getItem('rol');
+
+      if (!token || rol !== 'admin') {
+        alert('⚠️ Acceso denegado. Inicia sesión como administrador.');
+        window.location.href = '../index.html';
+      }
+    });
+
+    function cerrarSesion() {
+      localStorage.removeItem('token');
+      localStorage.removeItem('rol');
+      window.location.href = '../index.html';
+    }
+  </script>
+</body>
+</html>

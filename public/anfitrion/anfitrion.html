@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Panel del Anfitrión - Tu Refugio</title>
+  <link rel="stylesheet" href="anfitrion.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+</head>
+<body>
+  <header>
+    <div class="titulo-con-logo">
+      <img src="logo.png" alt="" class="logo-principal">
+      <h1 class="titulo-principal">Panel del Anfitrión</h1>
+    </div>
+
+    <nav class="nav-centered">
+      <ul class="menu">
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="#">Panel</a>
+          <ul>
+              <li><a href="#">Perfil</a></li>
+            <li><a href="#">Gestionar Propiedades</a></li>
+            <li><a href="#">Reservas Recibidas</a></li>
+            <li><a href="#">Validar Usuarios</a></li>
+            <li><a href="#">Reportes</a></li>
+             <li><a href="#" onclick="cerrarSesion()">Cerrar Sesión</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="estadisticas card">
+      <h3>📊 Ocupación Semanal (%)</h3>
+      <canvas id="graficaOcupacion"></canvas>
+    </section>
+
+    <section class="collage card">
+      <h3>🖼️ Galería de Alojamientos</h3>
+      <img src="alojamiento1.jpg" alt="Alojamiento 1">
+      <img src="alojamiento2.jpg" alt="Alojamiento 2">
+      <img src="alojamiento3.jpg" alt="Alojamiento 3">
+    </section>
+  </main>
+
+  <footer>
+    <p></p>
+  </footer>
+
+  <script>
+    const ctx = document.getElementById('graficaOcupacion').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'],
+        datasets: [{
+          label: 'Ocupación',
+          data: [60, 70, 75, 80, 65, 90, 85],
+          backgroundColor: 'rgba(0, 123, 138, 0.8)',
+          borderRadius: 8
+        }]
+      },
+      options: {
+        plugins: {
+          legend: { display: false },
+          datalabels: {
+            anchor: 'end',
+            align: 'top',
+            color: '#ffffff',
+            font: { weight: 'bold' },
+            formatter: value => `${value}%`
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: { color: '#cfd8dc', stepSize: 10 }
+          },
+          x: {
+            ticks: { color: '#cfd8dc' }
+          }
+        }
+      },
+      plugins: [ChartDataLabels]
+    });
+
+    function cerrarSesion() {
+      localStorage.removeItem('token');
+      localStorage.removeItem('rol');
+      window.location.href = '../index.html';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Administrador</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <div class="login-container">
+    <div class="logo-container">
+      <img src="logo.png" alt="Logo Tu Refugio">
+    </div>
+    <h2>Acceso Administrador</h2>
+
+    <!-- Cambiado para usar JavaScript en lugar de una acción fija -->
+    <form onsubmit="return loginAdmin(event)">
+      <input type="text" name="usuario" placeholder="Usuario" required>
+      <input type="password" name="password" placeholder="Contraseña" required>
+      <button type="submit">Ingresar</button>
+      <ul>
+        <li><a href="../index.html">Volver</a></li>
+      </ul>
+    </form>
+  </div>
+
+  <script>
+    function loginAdmin(event) {
+      event.preventDefault();
+
+      const usuario = event.target.usuario.value.trim();
+      const password = event.target.password.value.trim();
+
+      if (usuario === 'admin@refugio.com' && password === 'admin123') {
+        // Guardar token y rol simulados
+        localStorage.setItem('token', 'adminToken');
+        localStorage.setItem('rol', 'admin');
+
+        // Redireccionar al panel de administrador
+        window.location.href = '../bienvenido_admin/b_admin.html';
+      } else {
+        alert('Credenciales incorrectas. Inténtalo de nuevo.');
+      }
+
+      return false;
+    }
+  </script>
+
+</body>
+</html>

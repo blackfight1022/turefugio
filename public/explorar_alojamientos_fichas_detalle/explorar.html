@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Explorar Alojamientos - Tu Refugio</title>
+  <link rel="stylesheet" href="explorar.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="titulo-con-logo">
+      <img src="logo.png" alt="" class="logo-principal">
+      <h1 class="titulo-principal">Tu Refugio</h1>
+    </div>
+    <nav class="nav-centered">
+      <ul class="menu">
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="#">Registro</a>
+          <ul>
+            <li><a href="../registro_turista/turista.html">Turista</a></li>
+            <li><a href="../registro_anfitrion/anfitrion.html">Anfitrión</a></li>
+          </ul>
+        </li>
+        <li><a href="../login/login.html">Iniciar Sesión</a></li>
+        <li><a href="#">Explorar Alojamientos</a>
+          <ul>
+            
+            <li><a href="../reservar/reservar.html">Reservar</a></li>
+            <li><a href="../calificar_reseñar/calificar.html">Calificar / Reseñar</a></li>
+          </ul>
+        </li>
+        
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="formulario">
+      <h1>Explorar Alojamientos</h1>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+        <div class="card">
+          <img src="cabaña1.jpg" alt="Cabaña 1" style="width: 100%; border-radius: 12px;">
+          <h2>Cabaña del Lago</h2>
+          <p>Ubicación: llanos orientales</p>
+          <p>Precio: $105 COP/noche</p>
+          <a href="ficha-detalle.html"><button>Ver Detalles</button></a>
+        </div>
+        <div class="card">
+          <img src="hostal2.jpg" alt="Hostal" style="width: 100%; border-radius: 12px;">
+          <h2>Hostal Andino</h2>
+          <p>Ubicación: Barbosa</p>
+          <p>Precio: $75 COP/noche</p>
+          <a href="ficha-detalle.html"><button>Ver Detalles</button></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p></p>
+    </div>
+  </footer>
+</body>
+</html>
